@@ -23,7 +23,7 @@ shinyServer(
             d$Activity.type = chars
 
             # get date
-            setyear = 2014
+            setyear = 2015
             d$From <- as.Date(paste(setyear, d$From), "%Y %b %d %I:%M %p")
             d$From_Day <- format(d$From, format="%Y-%m-%d")
             
@@ -70,11 +70,11 @@ shinyServer(
     output$day.sel <- renderUI({
         load <- function()
         {
-            d = read.csv('./data/2014.csv', header=T)
+            d = read.csv('./data/2015-1-to-5.csv', header=T)
         }
         d = load()
 
-        setyear = 2014
+        setyear = 2015
         print(head(d$From))
         d$From <- as.Date(paste(setyear, as.character(d$From)), "%Y %b %d %I:%M %p")
         d$To   <- as.Date(paste(setyear, as.character(d$To)),   "%Y %b %d %I:%M %p")
@@ -96,7 +96,7 @@ shinyServer(
     output$act.sel <- renderUI({
         load <- function()
         {
-            d = read.csv('./data/2014.csv', header=T)
+            d = read.csv('./data/2015-1-to-5.csv', header=T)
         }
         d = load()
         acts = unique(as.character(d$Activity.type))
